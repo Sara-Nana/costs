@@ -3,7 +3,7 @@ import styles from './Message.module.css'
 
 function Message({ type, msg }) {
 
-    const [visible, setVisible] = useState (false)
+    const [visible, setVisible] = useState(false)
 
     useEffect (() => {
         
@@ -16,7 +16,7 @@ function Message({ type, msg }) {
 
         const timer = setTimeout (() => {
             setVisible(false)
-        }, 3000)
+        }, 2000)
 
         return () => clearTimeout(timer)
 

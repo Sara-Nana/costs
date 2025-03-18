@@ -8,26 +8,24 @@ function NewProject() {
 
     const navigate = useNavigate();
 
-    function createPost(Project) {
+    function createPost(project) {
         
-        Project.cost = 0
-        Project.servises = []
+        project.cost = 0
+        project.servises = []
 
         fetch('http://localhost:5000/projects', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(Project),
+            body: JSON.stringify(project),
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Success:', data);
-                navigate('/projects', { message: 'Project created successfully!' });
+                navigate('/projects', {state: { message: 'Project created successfully!' }});
+                console.log(data)
             })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+            .catch((error) => console.log('Error:', error));
     }
 
     return (
